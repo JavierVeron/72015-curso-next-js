@@ -1,20 +1,24 @@
-import Image from "next/image";
-import Curso from "./Clase1/Curso";
-import Counter from "./Clase1/Counter";
-
-const Encabezado = () => {
-  return (
-    <h1 className="font-sans text-3xl">Coderhouse</h1>
-  )
-}
+import Boton from "./components/Boton";
+import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
 
 export default function Home() {
   return (
-    <div className="flex flex-col p-10 ">
-      <Encabezado />
-      <Curso />
-      <Image src="/hamburguesa-tasty.png" alt={"Hamburguesa Tasty"} width={240} height={120} />
-      <Counter />
-    </div>
+    <>
+      <NavBar />
+      <Boton className={"bg-sky-500"} title={"Ingresá a OF!"}>
+        <p>Hace Click Aquí</p>
+        <p>Sumate al OF</p>
+      </Boton>
+      <Boton className={"bg-green-500"} title={"Ingresá a Spotify!"}>
+        <p>Hace Click Aquí</p>
+        <p>Sumate al Spotify Premium</p>
+      </Boton>
+      <Boton className={"bg-red-500"} title={"Ingresa a YouTube!"}>
+        <p>Hace Click Aquí</p>
+        <p>Sumate al YouTube Premium</p>
+      </Boton>
+      <Footer />
+    </>
   );
 }
