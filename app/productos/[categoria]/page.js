@@ -10,13 +10,16 @@ export async function generateMetadata ({params, searchParams}, parent) {
 }
 
 export default async function Productos({params}) {
-    const {categoria} = await params;
-    //console.log(categoria);
+    let categoria;
+
+    if (await params) {
+        const {categoria} = await params;
+    }
+
     const items = categoria ? mockData.filter(item => item.categoria == categoria) : mockData;
-    //console.log(items);
 
     return (
-        <section className="flex justify-center items-center h-screen">
+        <section className="container m-auto flex justify-center my-20">
             {
                 items.map(item => (
                     <ProductCard key={item.id} item={item} />
