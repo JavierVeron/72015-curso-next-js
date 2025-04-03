@@ -1,10 +1,35 @@
 "use client";
-import { createContext } from "react";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createContext, useState } from "react";
+import { auth } from "../firebase/config";
 
 export const AuthContext = createContext();
 
 const AuthContextProvider = ({children}) => {
-    return <AuthContext.Provider value={{}}>
+    const [user, setUser] = useState({
+        logged:false,
+        email:null,
+        uid:null
+    });
+
+    const createUser = async (email, pass) => {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
+        const user = userCredential.user;
+        setUser({logged:true, email:user.email, uid:user.uid});
+    }
+
+    const logInUser = async (email, pass) => {
+        const userCredential = await signInWithEmailAndPassword(auth, email, pass);
+        const user = userCredential.user;
+        
+        if (user) {
+            console.log("estoy aca");
+            
+            setUser({logged:true, email:user.email, uid:user.uid});
+        }
+    }
+
+    return <AuthContext.Provider value={{user, createUser, logInUser}}>
         {children}
     </AuthContext.Provider>
 }

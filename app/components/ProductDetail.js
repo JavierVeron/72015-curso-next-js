@@ -7,7 +7,7 @@ const ProductDetail = async ({slug}) => {
     return (
         <div className="container m-auto flex flex-row my-20 px-20">
             <div className="w-1/2 flex flex-col items-end">
-                <Image src={"/images/" + item.imagen} alt={item.nombre} width={320} height={240} />
+                <Image src={item.imagen} alt={item.nombre} width={320} height={240} />
             </div>
             <div className="w-1/2 flex flex-col justify-center">
                 <h1 className="text-4xl font-bold dark:text-white">{item.nombre}</h1>

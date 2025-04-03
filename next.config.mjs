@@ -3,7 +3,7 @@ const nextConfig = {
     images: {
         remotePatterns: [
           {
-            hostname: 'cache-mcd-middleware.mcdonaldscupones.com',
+            hostname: 'firebasestorage.googleapis.com',
           },
         ],
       },
