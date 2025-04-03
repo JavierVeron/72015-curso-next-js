@@ -1,14 +1,13 @@
 "use client"
-import { useState } from "react"
+import { useState } from "react";
 
-const ContactForm = () => {
+export default function Contacto() {
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
     const [telefono, setTelefono] = useState("");
     const [resultado, setResultado] = useState("");
 
     const handleSubmit = async () => {
-        //console.log(nombre, email, telefono);
         const response = await fetch("http://localhost:3000/api/contacto", {
             method:"POST",
             body:JSON.stringify({nombre, email, telefono})
@@ -47,5 +46,3 @@ const ContactForm = () => {
         </div>
     )
 }
-
-export default ContactForm

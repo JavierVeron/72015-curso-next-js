@@ -9,7 +9,7 @@ const ProductCard = ({item}) => {
                     <Image src={"/images/" + item.imagen} alt={item.nombre} width={"240"} height={"80"} />
                 </Link>
             </div>
-            <div>
+            <div className="text-center">
                 <p>{item.nombre}</p>
             </div>
         </div>

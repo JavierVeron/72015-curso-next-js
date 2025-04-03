@@ -3,7 +3,7 @@ import Menu from "./Menu"
 
 const NavBar = () => {
     return (
-        <header className="w-full bg-gray-600">
+        <header className="w-full">
             <div className="container m-auto p-5 flex flex-row justify-between">
                 <Logo />
                 <Menu />

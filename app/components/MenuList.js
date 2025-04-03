@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const MenuList = ({open, handleClose}) => {
     return (
         <div className={`${open ? 'opacity-100 visible' : 'opacity-0 invisible'} transition-all fixed inset-0 bg-black/50 flex justify-end`}>
@@ -6,9 +8,12 @@ const MenuList = ({open, handleClose}) => {
                     [ X ]
                 </div>
                 <nav className="flex flex-col gap-5 px-5">
-                    <a href="#" className="text-white p-2">Link #1</a>
-                    <a href="#" className="text-white p-2">Link #2</a>
-                    <a href="#" className="text-white p-2">Link #3</a>
+                    <Link href="/" className="text-white p-2">Inicio</Link>
+                    <Link href="/productos" className="text-white p-2">Productos</Link>
+                    <Link href="/nosotros" className="text-white p-2">Nosotros</Link>
+                    <Link href="/admin" className="text-white p-2">Administrador</Link>
+                    <Link href="/carrito" className="text-white p-2">Carrito</Link>
+                    <Link href="/contacto" className="text-white p-2">Contacto</Link>
                 </nav>
             </aside>
         </div>

@@ -11,17 +11,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export default async function RootLayout({ children, params }) {
+export default async function ProductosLayout({ children, params }) {
   const {categoria} = await params;
 
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <NavigationMenu categoria={categoria} />
-        {children}
-      </body>
-    </html>
+    <>
+      <NavigationMenu categoria={categoria} />
+      {children}
+    </>
   );
 }
