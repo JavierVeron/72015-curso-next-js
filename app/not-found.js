@@ -1,5 +1,5 @@
 import { Router } from "next/navigation";
-import Boton from "./components/Boton";
+import Boton from "./components/Button";
 
 export default function NotFound() {
     return (

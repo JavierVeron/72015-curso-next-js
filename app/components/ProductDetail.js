@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Counter from "./Counter";
 
 const ProductDetail = async ({slug}) => {
     const response = await fetch("http://localhost:3000/api/producto/" + slug, {cache:"no-store"});
@@ -11,8 +12,9 @@ const ProductDetail = async ({slug}) => {
             </div>
             <div className="w-1/2 flex flex-col justify-center">
                 <h1 className="text-4xl font-bold dark:text-white">{item.nombre}</h1>
-                <p className="tracking-tighter text-gray-500 md:text-lg dark:text-gray-400 my-5">{item.descripcion}</p>
-                <p className="text-3xl font-bold text-gray-900 dark:text-white my-5">${item.precio}</p>
+                <p className="tracking-tighter text-gray-500 md:text-lg dark:text-gray-400 my-2">{item.descripcion}</p>
+                <p className="text-3xl font-bold text-gray-900 dark:text-white my-2">${item.precio}</p>
+                <Counter item={item.slug} />
             </div>
         </div>
     )

@@ -1,10 +1,37 @@
 "use client";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const CartContext = createContext();
 
 const CartContextProvider = ({children}) => {
-    return <CartContext.Provider value={{}}>
+    const [cart, setCart] = useState([]);
+
+    const addProductToCart = (id) => {
+        let product = cart.find(item => item.id == id);
+
+        if (product) {
+            product.quantity += 1;
+            setCart([...cart]);
+        } else {
+            product = {id:id, quantity:1};
+            setCart([...cart, product]);
+        }
+
+        console.log("Se agregó el Producto #" + id + "!");   
+    }
+
+    const deleteProductFromCart = (id) => {
+        let cartUpdated = cart.filter(item => item.id != id);
+        setCart([...cartUpdated]);
+        console.log("Se eliminó el Producto #" + id + "!");
+    }
+
+    const emptyCart = () => {
+        setCart([]);
+        console.log("Se vació el Carrito!");
+    }
+
+    return <CartContext.Provider value={{cart, addProductToCart, deleteProductFromCart, emptyCart}}>
         {children}
     </CartContext.Provider>
 }
