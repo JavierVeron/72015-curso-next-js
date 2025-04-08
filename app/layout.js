@@ -17,7 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "McDondalds Argentina",
-  description: "Descubre y disfruta de nuestras hamburguesas, patatas, mcflurry, en nuestra web. Calidad ✓. Pedir o recoger ✓ 24h ✓. Descuento ✓"
+  description: "Descubre y disfruta de nuestras hamburguesas, patatas, mcflurry, en nuestra web. Calidad ✓. Pedir o recoger ✓ 24h ✓. Descuento ✓",
+  keywords: ["mcdonalds", "hamburguesas", "pollo", "papas", "bebidas"]
 };
 
 export default function RootLayout({ children }) {

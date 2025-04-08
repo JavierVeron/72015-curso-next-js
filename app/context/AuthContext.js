@@ -22,10 +22,10 @@ const AuthContextProvider = ({children}) => {
         const userCredential = await signInWithEmailAndPassword(auth, email, pass);
         const user = userCredential.user;
         
-        if (user) {
-            console.log("estoy aca");
-            
+        if (user) {            
             setUser({logged:true, email:user.email, uid:user.uid});
+        } else {
+            console.log("Error! El usuario ingresado no es válido!");
         }
     }
 

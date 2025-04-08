@@ -5,7 +5,7 @@ import { CartContext } from "../context/CartContext";
 import Button from "./Button";
 
 const Counter = ({item}) => {
-    const [counter, setCounter] = useState(0);
+    const [counter, setCounter] = useState(1);
     const {addProductToCart} = useContext(CartContext);
 
     const increment = () => {
@@ -18,6 +18,11 @@ const Counter = ({item}) => {
         }
     }
 
+    const addProduct = () => {        
+        addProductToCart(item, counter);
+        setCounter(1);
+    }
+
     return (
         <div className="my-10">
             <div>
@@ -26,7 +31,7 @@ const Counter = ({item}) => {
                 <Button onClick={increment}> + </Button>
             </div>
             <div>
-                <Button onClick={() => {addProductToCart(item)}}>Agregar al Carrito</Button>
+                <Button onClick={addProduct}>Agregar al Carrito</Button>
             </div>
         </div>
     )
